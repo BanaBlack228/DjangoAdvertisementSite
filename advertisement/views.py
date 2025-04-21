@@ -1,5 +1,6 @@
 from django.shortcuts import render
 
+
 def main_page(request):
     context = {"title": "Главная страница"}
     return   render(request, template_name='advertisement/main_page.html', context=context)
@@ -19,3 +20,7 @@ def support(request):
 def notification(request):
     context = {"title": "Уведомления"}
     return   render(request, template_name='advertisement/notification.html', context=context)
+
+def registration(request):
+    context = {"title": "Регистрация"}
+    return   render(request, template_name='advertisement/registration.html', context=context)

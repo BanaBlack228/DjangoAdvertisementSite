@@ -1,86 +1,27 @@
+{% extends 'advertisement/base.html' %}
 {% load static %}
+{% block content %}
 <!DOCTYPE html>
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{title}}</title>
-  <link rel="stylesheet" href="#">
-  <style>
-section {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 30px;
-  padding: 80px 40px 40px 80px;
-}
-
-.card {
-  width: min(100%, 500px);
-  background: rgba(255, 255, 255);
-  border-radius: 16px;
-  font-family: "Poppins", sans-serif;
-  z-index: 5;
-}
-
-.card > img {
-  display: block;
-  width: 100%;
-  max-width: 500px;
-  aspect-ratio: 4/3;
-  object-fit: cover;
-  object-position: 50% 50%;
-  border-radius: 16px 16px 0 0;
-  filter: contrast(70%);
-  transition: all 0.6s cubic-bezier(0.43, 0.41, 0.22, 0.91);
-}
-
-.card > img:hover {
-  filter: contrast(100%);
-}
-
-.card-content {
-  display: flex;
-  flex-direction: column;
-  padding: 20px 15px 20px;
-}
-
-.card-content > p {
-  margin-bottom: 10px;
-}
-
-.card-content > p:nth-child(1) {
-  font-size: 1rem;
-  font-weight: 600;
-  margin-bottom: 10px;
-  color: #1e40af;
-}
-
-.card-content > p:nth-child(2) {
-  font-size: 0.8rem;
-  font-weight: 400;
-  color: #6b7280;
-}
-
-@media (max-width: 900px) {
-  section {
-     grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (max-width: 500px) {
-  section {
-     grid-template-columns: repeat(1, 1fr);
-  }
-}
-  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Mulish:wght@400;500;600&family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="{% static 'CSS/css.css' %}">
   <body>
-<section>
+<div class="container">
+  </div>
+    <section>
     <div class="card">
       <img src="https://frankfurt2.apollo.olxcdn.com/v1/files/o2mqeaktoeai-KZ/image;s=1000x700" alt="image" />
 
       <div class="card-content">
         <p>Гитара с комбоусиоителем полный комплект</p>
-        <p>Электрогитара с мощным комбоусилителем полный комплект , состояние абсолютно новой гитары. 30 тыс.р</p>
+        <p>Электрогитара с мощным комбоусилителем полный комплект , состояние абсолютно новой гитары.</p>
+          <span class="product-card__price">30 тыс.р</span>
+          <button class="product-card__button">Добавить в корзину</button>
+
       </div>
     </div>
 
@@ -89,7 +30,9 @@ section {
 
       <div class="card-content">
         <p>Барабанная установка</p>
-        <p>акустическая барабанная установка rolling rock,можно обмен на электро барабанную установку. 18 тыс.р</p>
+        <p>акустическая барабанная установка rolling rock,можно обмен на электро барабанную установку.</p>
+          <span class="product-card__price">18 тыс.р</span>
+          <button class="product-card__button">Добавить в корзину</button>
       </div>
     </div>
 
@@ -98,9 +41,17 @@ section {
 
       <div class="card-content">
         <p>Наушники YAMAHA HPH-MT7/p>
-        <p>Мониторные наушники, флагманская модель, закрытое акустическое оформление, диаметр драйвера 40 мм, диапазон частот 15 Гц - 25 кГц, чувствительность 99 дБ, импеданс 49 Ом, длина кабеля 3 м, масса 360 г. 30 тыс.р</p>
+        <p>Мониторные наушники, флагманская модель, закрытое акустическое оформление,
+          диаметр драйвера 40 мм, диапазон частот 15 Гц - 25 кГц, чувствительность 99 дБ,
+          импеданс 49 Ом, длина кабеля 3 м, масса 360 г.</p>
+          <span class="product-card__price">30 тыс.р</span>
+          <button class="product-card__button">Добавить в корзину</button>
       </div>
     </div>
   </section>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+{% endblock content %}
 </body>
 </html>
+

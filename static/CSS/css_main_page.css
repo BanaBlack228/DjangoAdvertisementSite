@@ -1,0 +1,79 @@
+/* TEXT */
+
+.text-configuration {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.text {
+  font-weight: 100;
+  font-size: 72px;
+  color: #bbbbbb;
+  margin-bottom: 60px;
+}
+
+.dud {
+  color: #0ABAB5;
+}
+
+/* BUTTON */
+.button {
+  width: 250px;
+  height: 80px;
+  text-align: center;
+  line-height: 2.5;
+  border-radius: 30px;
+  background: #fff;
+  transform: scale(1);
+  z-index: 100;
+  transition: all 0.8s 0.1s linear;
+   font-size: 24px;
+  font-weight: bold;
+}
+
+.button:hover::after,
+.button:hover::before {
+  position: absolute;
+  content: "";
+  top: -20px;
+  right: -20px;
+  bottom: -20px;
+  left: -20px;
+  z-index: -20;
+  border: 1px solid #fff;
+  border-radius: 40px;
+  animation: pulse 1s linear infinite;
+}
+
+.button:hover::before {
+  animation-delay: 0.3s;
+}
+
+.button:hover {
+  z-index: 100;
+  animation: phone 1s linear infinite;
+  animation-direction: normal;
+}
+
+@keyframes phone {
+  15% { transform: rotate(5deg); }
+  30% { transform: rotate(-5deg); }
+  45% { transform: rotate(5deg); }
+  60% { transform: rotate(-5deg); }
+  75% { transform: rotate(0); }
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(0.7, 0.3);
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1.2);
+    opacity: 0;
+  }
+}
