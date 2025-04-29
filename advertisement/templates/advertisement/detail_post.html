@@ -1,0 +1,42 @@
+
+{% load static %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{title}}</title>
+    <link href="https://fonts.googleapis.com/css2?family=Mulish:wght@400;500;600&family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Mono:100" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{% static 'CSS/#.css' %}">
+    <body>
+<div class="container">
+  {{ post.author }}
+  <hr>
+  {{ post.title }}
+
+{% if post.image %}
+    <img src="{{ post.image.url }}" width="200px" height="auto">
+{% else %}
+    <img src="{% static 'IMG/No_image_available.png' %}" width="200px" height="auto">
+{% endif %}
+
+  {{ post.text }}
+    <i>{{ post.created_at }}</i>
+
+    <div class="btn-action">
+        <div class="btn-edit-post">
+            <button class="submit"><a href="{% url 'advertisement:update_post' pk=post.id %}"> Редактировать</a></button>
+        </div>
+
+        <div class="btn-del-post">
+            <button class="submit"><a href="{% url 'advertisement:delete_post' pk=post.id %}">Удалить</a></button>
+        </div>
+
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="{% static 'JS/#.js' %}"></script>
+{% endblock content %}
+</body>
+</html>

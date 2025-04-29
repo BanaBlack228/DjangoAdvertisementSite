@@ -10,46 +10,25 @@
   <link href="https://fonts.googleapis.com/css2?family=Mulish:wght@400;500;600&family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="{% static 'CSS/css.css' %}">
   <body>
-<div class="container">
-  </div>
     <section>
-    <div class="card">
-      <img src="https://frankfurt2.apollo.olxcdn.com/v1/files/o2mqeaktoeai-KZ/image;s=1000x700" alt="image" />
-
-      <div class="card-content">
-        <p>Гитара с комбоусиоителем полный комплект</p>
-        <p>Электрогитара с мощным комбоусилителем полный комплект , состояние абсолютно новой гитары.</p>
-          <span class="product-card__price">30 тыс.р</span>
-          <button class="product-card__button">Добавить в корзину</button>
-
-      </div>
-    </div>
-
-    <div class="card">
-      <img src="https://frankfurt2.apollo.olxcdn.com/v1/files/osvtjfbn38jb-KZ/image;s=1000x700" alt="image" />
-
-      <div class="card-content">
-        <p>Барабанная установка</p>
-        <p>акустическая барабанная установка rolling rock,можно обмен на электро барабанную установку.</p>
-          <span class="product-card__price">18 тыс.р</span>
-          <button class="product-card__button">Добавить в корзину</button>
-      </div>
-    </div>
-
-    <div class="card">
-      <img src="https://prosound.ixbt.com/monitors/yamaha/hph-mt5/image009.jpg" alt="image" />
-
-      <div class="card-content">
-        <p>Наушники YAMAHA HPH-MT7/p>
-        <p>Мониторные наушники, флагманская модель, закрытое акустическое оформление,
-          диаметр драйвера 40 мм, диапазон частот 15 Гц - 25 кГц, чувствительность 99 дБ,
-          импеданс 49 Ом, длина кабеля 3 м, масса 360 г.</p>
-          <span class="product-card__price">30 тыс.р</span>
-          <button class="product-card__button">Добавить в корзину</button>
-      </div>
-    </div>
-  </section>
-</div>
+        <div class="post-list">
+            {% for post in posts %}
+                <div class="card">
+                    {% if post.image %}
+                        <img src="{{ post.image.url }}" alt="{{ post.title }}">
+                    {% else %}
+                        <img src="{% static 'IMG/No_image_available.png' %}" alt="No image available">
+                    {% endif %}
+                    <div class="card-content">
+                        <p>{{ post.author }}</p>
+                        <p><a href="{% url 'advertisement:read_post' pk=post.pk %}">{{ post.title }}</a></p>
+                        <p>{{ post.text }}</p>
+                        <p><i>{{ post.created_at }}</i></p>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </section>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 {% endblock content %}
 </body>

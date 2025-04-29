@@ -100,10 +100,10 @@ body {
 	background:#1F2024;
 	min-height: 100vh;
 	overflow: hidden;
-	position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+	position: inherit;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .blob-c {

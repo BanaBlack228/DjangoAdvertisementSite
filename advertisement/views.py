@@ -1,12 +1,14 @@
-from django.shortcuts import render
-
+from django.shortcuts import render,redirect
+from .models import Post
+from .forms import PostForm
 
 def main_page(request):
     context = {"title": "Главная страница"}
     return   render(request, template_name='advertisement/main_page.html', context=context)
 
 def about(request):
-    context = {"title": "Объявления"}
+    posts = Post.objects.all()
+    context = {"title": "Объявления", "posts": posts}
     return   render(request, template_name='advertisement/about.html', context=context)
 
 def settings(request):
@@ -24,3 +26,53 @@ def notification(request):
 def registration(request):
     context = {"title": "Регистрация"}
     return   render(request, template_name='advertisement/registration.html', context=context)
+
+def add_post(request):
+    if request.method == "GET":
+        post_form = PostForm()
+        context = {"title": "Добавить пост",'form':post_form}
+        return render(request,template_name='advertisement/add_post.html', context=context)
+
+    if request.method == "POST":
+        post_form = PostForm(data=request.POST, files=request.FILES)
+        if post_form.is_valid():
+            post = Post()
+            post.title = post_form.cleaned_data['title']
+            post.text = post_form.cleaned_data['text']
+            post.author = post_form.cleaned_data['author']
+            post.image = post_form.cleaned_data['image']
+            post.save()
+    return about(request)
+
+def read_post(request, pk):
+    post = Post.objects.get(pk=pk)
+    context = {"title": "Информация о посте","post": post}
+    return render(request, template_name='advertisement/detail_post.html', context=context)
+
+def update_post(request, pk):
+    post = Post.objects.get(pk=pk)
+    if request.method == "POST":
+        post_form = PostForm(data=request.POST, files=request.FILES)
+        if post_form.is_valid():
+            post.title = post_form.cleaned_data['title']
+            post.text = post_form.cleaned_data['text']
+            post.author = post_form.cleaned_data['author']
+            post.image = post_form.cleaned_data['image']
+            post.save()
+        return redirect('advertisement:read_post', pk=post.id)
+    else:
+        post_form = PostForm(initial={
+            "title": post.title,
+            "author": post.author,
+            "text": post.text,
+            "image": post.image,
+        })
+        return render(request, template_name="advertisement/edit_post.html", context={"form":post_form})
+
+def delete_post(request, pk):
+    post = Post.objects.get(pk=pk)
+    contex = {"post": post}
+    if request.method == "POST":
+        post.delete()
+        return about('advertisement:about')
+    return render(request, template_name="advertisement/delete_post.html", context=contex)

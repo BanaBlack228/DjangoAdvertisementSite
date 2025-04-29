@@ -1,4 +1,4 @@
-{% extends 'advertisement/base.html' %}
+
 {% load static %}
 {% block content %}
 <!DOCTYPE html>
@@ -9,18 +9,18 @@
     <title>{{title}}</title>
     <link href="https://fonts.googleapis.com/css2?family=Mulish:wght@400;500;600&family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Roboto+Mono:100" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="{% static 'CSS/css_main_page.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'CSS/#.css' %}">
     <body>
-    <div class="container">
-        <div class="text-configuration">
-          <div class="text"></div>
-          <a href="{% url 'advertisement:add_post' %}">
-              <button class="button">Создать</button>
-          </a>
-        </div>
-    </div>
+    <p>Автор - {{ post.author }}</p>
+    <p>Заголовок - {{ post.title }}</p>
+
+    <form method="post">
+        {% csrf_token %}
+        <button class="submit">Удалить</a></button>
+        <button class="button"><a href="{% url 'advertisement:read_post' pk=post.pk %}">Отменить</a></button>
+    </form>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-    <script src="{% static 'JS/script_main_page.js' %}"></script>
+    <script src="{% static 'JS/#.js' %}"></script>
 {% endblock content %}
-    </body>
+</body>
 </html>

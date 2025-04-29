@@ -1,0 +1,94 @@
+body {
+    font-family: 'Montserrat', Arial, Helvetica, sans-serif; /* Устанавливаем шрифт по умолчанию для всего тела */
+    color: white; /* Цвет текста по умолчанию белый */
+}
+
+.post-form {
+    background: rgba(72,72,72,0.4); /* Полупрозрачный фон */
+    border: 2px solid transparent; /* Начальный цвет рамки */
+    border-radius: 15px; /* Скругление углов */
+    padding: 20px; /* Внутренние отступы */
+    width: 400px; /* Ширина формы */
+    position: relative; /* Для псевдоэлементов */
+    overflow: hidden; /* Убираем переполнение */
+}
+
+.post-form::before {
+    content: '';
+    position: absolute;
+    top: -5px;
+    left: -5px;
+    right: -5px;
+    bottom: -5px;
+    background: rgba(0, 133, 255, 0.3); /* Полупрозрачный цвет рамки */
+    border-radius: 15px; /* Скругление углов */
+    z-index: -1; /* Псевдоэлемент под формой */
+    animation: pulse 2s infinite; /* Анимация пульсации */
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+.post-form h2 {
+    text-align: center; /* Центрируем заголовок */
+    color: #008c8c; /* Цвет заголовка */
+    margin-bottom: 20px; /* Отступ снизу */
+}
+
+/* Стили для текстовых полей */
+input, textarea {
+    border: 2px solid #008c8c; /* Вертикальная рамка для текстовых полей */
+    border-radius: 5px; /* Скругление углов текстовых полей */
+    padding: 10px; /* Внутренние отступы текстовых полей */
+    width: calc(100% - 24px); /* Учитываем отступы и рамку */
+    margin-bottom: 20px; /* Отступ снизу для разделения полей */
+}
+
+input:hover, textarea:hover,
+input:focus, textarea:focus {
+    background-color: #DCDCDC; /* Цвет фона становится белым при наведении или фокусе */
+}
+
+/* Стили для кнопки */
+#button-blue {
+    font-family: 'Montserrat', Arial, Helvetica, sans-serif; /* Шрифт кнопки */
+    float: left; /* Выравнивание кнопки влево */
+    width: 100%; /* Ширина кнопки 100% от родительского элемента */
+    border: white solid 4px; /* Рамка кнопки */
+    cursor: pointer; /* Указатель мыши при наведении */
+    background-color: #008c8c; /* Цвет фона кнопки */
+    color: white; /* Цвет текста на кнопке */
+    font-size: 24px; /* Размер шрифта текста на кнопке */
+    padding-top: 22px; /* Внутренний отступ сверху */
+    padding-bottom: 22px; /* Внутренний отступ снизу */
+    -webkit-transition: all 0.3s; /* Плавный переход для веб-китов */
+    -moz-transition: all 0.3s; /* Плавный переход для Firefox */
+    transition: all 0.3s; /* Плавный переход для остальных браузеров */
+    margin-top: -4px; /* Отрицательный отступ сверху */
+    font-weight: 700; /* Жирность шрифта */
+}
+
+#button-blue:hover {
+    background-color: rgba(0, 0, 0, 0); /* Прозрачный фон при наведении */
+    color: white; /* Цвет текста при наведении */
+}
+
+.submit:hover {
+    color: #008c8c; /* Цвет текста при наведении на элемент с классом .submit */
+}
+
+.ease {
+    width: 0px; /* Начальная ширина элемента с классом .ease */
+    height: 74px; /* Высота элемента с классом .ease */
+    background-color: #fbfbfb; /* Цвет фона элемента с классом .ease */
+    -webkit-transition: .4s ease; /* Плавный переход для веб*/
+}
