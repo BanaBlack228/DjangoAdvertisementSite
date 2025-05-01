@@ -1,4 +1,4 @@
-from django.shortcuts import render,redirect
+from django.shortcuts import render,redirect, get_object_or_404
 from .models import Post
 from .forms import PostForm
 
@@ -44,13 +44,13 @@ def add_post(request):
             post.save()
     return about(request)
 
-def read_post(request, pk):
-    post = Post.objects.get(pk=pk)
+def read_post(request, slug):
+    post = get_object_or_404(Post, slug=slug)
     context = {"title": "Информация о посте","post": post}
     return render(request, template_name='advertisement/detail_post.html', context=context)
 
 def update_post(request, pk):
-    post = Post.objects.get(pk=pk)
+    post = get_object_or_404(Post, pk=pk)
     if request.method == "POST":
         post_form = PostForm(data=request.POST, files=request.FILES)
         if post_form.is_valid():
@@ -67,12 +67,21 @@ def update_post(request, pk):
             "text": post.text,
             "image": post.image,
         })
-        return render(request, template_name="advertisement/edit_post.html", context={"form":post_form})
+        return render(request, template_name="from/edit_post.html", context={"form":post_form})
 
 def delete_post(request, pk):
-    post = Post.objects.get(pk=pk)
+    post = get_object_or_404(Post, pk=pk)
     contex = {"post": post}
     if request.method == "POST":
         post.delete()
         return about('advertisement:about')
     return render(request, template_name="advertisement/delete_post.html", context=contex)
+
+def page_not_found(request, exception):
+    return render(request, template_name="advertisement/404.html", context={"title": "404"})
+
+def forbidden(request,exception):
+    return render(request, template_name="advertisement/403.html", context={"title": "403"})
+
+def server_error(request):
+    return render(request, template_name="advertisement/500.html", context={"title": "500"})
