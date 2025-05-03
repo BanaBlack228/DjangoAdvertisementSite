@@ -15,9 +15,9 @@
             <div class="post-form">
                 <form action="" method="post" enctype="multipart/form-data">
                     {% csrf_token %}
-                    {{ form.as_p }}
+                    {{ register_form }}
                       <div class="submit">
-                        <input type="submit" value="Добавить пост" id="button-blue"/>
+                        <input type="submit" value="Зарегистрироваться" id="button-blue"/>
                         <div class="ease"></div>
                       </div>
                 </form>

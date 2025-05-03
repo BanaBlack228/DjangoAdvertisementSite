@@ -23,10 +23,6 @@ def notification(request):
     context = {"title": "Уведомления"}
     return   render(request, template_name='advertisement/notification.html', context=context)
 
-def registration(request):
-    context = {"title": "Регистрация"}
-    return   render(request, template_name='advertisement/registration.html', context=context)
-
 def add_post(request):
     if request.method == "GET":
         post_form = PostForm()
