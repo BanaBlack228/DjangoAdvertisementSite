@@ -10,70 +10,76 @@
   <link rel="stylesheet" type="text/css" href="{% static 'CSS/style.css' %}">
 </head>
   <body>
-  <nav class="main-menu">
-      <ul>
-        <li>
-          <a href="{% url 'advertisement:main_page' %}">
-            <i class="fa fa-home nav-icon"></i>
-            <span class="nav-text">Главная</span>
-          </a>
-        </li>
+      <nav class="main-menu">
+          <ul>
+            <li>
+              <a href="{% url 'advertisement:main_page' %}">
+                <i class="fa fa-home nav-icon"></i>
+                <span class="nav-text">Главная</span>
+              </a>
+            </li>
 
-        <li>
-          <a href="{% url 'advertisement:about' %}">
-            <i class="fa fa-image nav-icon"></i>
-            <span class="nav-text">Объявления</span>
-          </a>
-        </li>
+            <li>
+              <a href="{% url 'advertisement:about' %}">
+                <i class="fa fa-image nav-icon"></i>
+                <span class="nav-text">Объявления</span>
+              </a>
+            </li>
 
-        <li>
-          <a href="file:///C:/Users/BanaBlack/OneDrive/Рабочий%20стол/Загатовка%20для%20интернет%20магазина/ADD_internet_blog/Magazin.html">
-            <i class="fa fa-pen nav-icon"></i>
-            <span class="nav-text">Блог</span>
-          </a>
-        </li>
+            <li>
+              <a href="file:///C:/Users/BanaBlack/OneDrive/Рабочий%20стол/Загатовка%20для%20интернет%20магазина/ADD_internet_blog/Magazin.html">
+                <i class="fa fa-pen nav-icon"></i>
+                <span class="nav-text">Блог</span>
+              </a>
+            </li>
 
-        <li>
-          <a href="{% url 'users:register' %}">
-            <i class="fa fa-bell nav-icon"></i>
-            <span class="nav-text">Регистрация</span>
-          </a>
-        </li>
+            <li>
+              <a href="{% url 'advertisement:support' %}">
+                <i class="fa fa-envelope nav-icon"></i>
+                <span class="nav-text">Поддержка</span>
+              </a>
+            </li>
 
-        <li>
-          <a href="{% url 'advertisement:support' %}">
-            <i class="fa fa-envelope nav-icon"></i>
-            <span class="nav-text">Поддержка</span>
-          </a>
-        </li>
+            <li>
+              <a href="{% url 'advertisement:notification' %}">
+                <i class="fa fa-bell nav-icon"></i>
+                <span class="nav-text">Уведомления</span>
+              </a>
+            </li>
 
-        <li>
-          <a href="{% url 'advertisement:notification' %}">
-            <i class="fa fa-bell nav-icon"></i>
-            <span class="nav-text">Уведомления</span>
-          </a>
-        </li>
+{% if not user.is_authenticated %}
+            <ul class="logout">
+                <li>
+                  <a href="{% url 'users:login' %}">
+                    <span class="nav-text">Вход</span>
+                  </a>
+                </li>
 
-      </ul>
+                <li>
+                  <a href="{% url 'users:register' %}">
+                    <span class="nav-text">Регистрация</span>
+                  </a>
+                </li>
+            </ul>
 
-      <ul class="logout">
-        <li>
-          <a href="{% url 'advertisement:settings' %}">
-            <i class="fa fa-cogs nav-icon"></i>
-            <span class="nav-text">Кабинет</span>
-          </a>
-        </li>
+{% else %}
+          <ul class="logout">
+            <li>
+              <a href="{% url 'users:user_profile' pk=user.pk %}">
+                <span class="nav-text">{{ user.username }}</span>
+              </a>
+            </li>
 
-        <li>
-          <a href="#">
-            <i class="fa fa-right-from-bracket nav-icon"></i>
-            <span class="nav-text">
-              Выход
-            </span>
-          </a>
-        </li>
-      </ul>
-   </nav>
+            <li>
+              <a href="{% url 'users:logout' %}">
+                <span class="nav-text">
+                  Выход
+                </span>
+              </a>
+            </li>
+          </ul>
+{% endif %}
+     </nav>
 <div class="container">
 	<div class="blob-c">
     <div class="blob"></div>

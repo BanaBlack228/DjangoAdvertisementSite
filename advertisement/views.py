@@ -1,4 +1,5 @@
 from django.shortcuts import render,redirect, get_object_or_404
+from django.contrib.auth.decorators import login_required
 from .models import Post
 from .forms import PostForm
 
@@ -23,6 +24,7 @@ def notification(request):
     context = {"title": "Уведомления"}
     return   render(request, template_name='advertisement/notification.html', context=context)
 
+@login_required
 def add_post(request):
     if request.method == "GET":
         post_form = PostForm()
@@ -45,6 +47,7 @@ def read_post(request, slug):
     context = {"title": "Информация о посте","post": post}
     return render(request, template_name='advertisement/detail_post.html', context=context)
 
+@login_required
 def update_post(request, pk):
     post = get_object_or_404(Post, pk=pk)
     if request.method == "POST":
@@ -65,6 +68,7 @@ def update_post(request, pk):
         })
         return render(request, template_name="from/edit_post.html", context={"form":post_form})
 
+@login_required
 def delete_post(request, pk):
     post = get_object_or_404(Post, pk=pk)
     contex = {"post": post}
