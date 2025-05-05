@@ -1,5 +1,7 @@
+from django.contrib.admin.templatetags.admin_list import pagination
 from django.shortcuts import render,redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
+from django.core.paginator import Paginator
 from .models import Post
 from .forms import PostForm
 
@@ -8,8 +10,17 @@ def main_page(request):
     return   render(request, template_name='advertisement/main_page.html', context=context)
 
 def about(request):
-    posts = Post.objects.all()
-    context = {"title": "Объявления", "posts": posts}
+    posts = Post.objects.all().order_by('-created_at')
+    count_posts = Post.objects.count()
+    per_page = 3
+    paginator = Paginator(posts,per_page)
+    page_number = request.GET.get('page')
+    page_obj = paginator.get_page(page_number)
+    context = {
+        "title": "Объявления",
+        "page_obj": page_obj,
+        "count_posts": count_posts
+    }
     return   render(request, template_name='advertisement/about.html', context=context)
 
 def settings(request):
@@ -20,9 +31,9 @@ def support(request):
     context = {"title": "Поддержка"}
     return   render(request, template_name='advertisement/support.html', context=context)
 
-def notification(request):
-    context = {"title": "Уведомления"}
-    return   render(request, template_name='advertisement/notification.html', context=context)
+def about_a_site(request):
+    context = {"title": "О Сайте"}
+    return   render(request, template_name='advertisement/about_a_site.html', context=context)
 
 @login_required
 def add_post(request):

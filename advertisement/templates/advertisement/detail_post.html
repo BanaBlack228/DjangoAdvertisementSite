@@ -25,16 +25,20 @@
   {{ post.text }}
     <i>{{ post.created_at }}</i>
 
+{% if user == post.author %}
     <div class="btn-action">
         <div class="btn-edit-post">
-            <button class="submit"><a href="{% url 'advertisement:update_post' pk=post.id %}"> Редактировать</a></button>
+            <a href="{% url 'advertisement:update_post' pk=post.id %}">
+                <button class="button">Редактировать</button>
+            </a>
         </div>
-
         <div class="btn-del-post">
-            <button class="submit"><a href="{% url 'advertisement:delete_post' pk=post.id %}">Удалить</a></button>
+            <a href="{% url 'advertisement:delete_post' pk=post.id %}">
+                <button class="button">Удалить</button>
+            </a>
         </div>
-
-    </div>
+{% endif %}
+</div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="{% static 'JS/#.js' %}"></script>
 {% endblock content %}

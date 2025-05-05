@@ -45,23 +45,23 @@ section {
   font-size: 1rem;
   font-weight: 600;
   margin-bottom: 10px;
-  color: #1e40af;
+  color: #ff5733; /* Изменено на новый цвет */
 }
 
 .card-content > p:nth-child(2) {
   font-size: 0.8rem;
   font-weight: 400;
-  color: #6b7280;
+  color: #ff5733; /* Изменено на новый цвет */
 }
 
 @media (max-width: 900px) {
-  section {
+  .section {
      grid-template-columns: repeat(2, 1fr);
   }
 }
 
 @media (max-width: 500px) {
-  section {
+  .section {
      grid-template-columns: repeat(1, 1fr);
   }
 }

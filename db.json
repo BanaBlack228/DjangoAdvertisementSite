@@ -1,0 +1,14 @@
+[
+  {"model": "advertisement.post", "pk": 1, "fields": {"title": "Тест 1", "text": "тест 1", "created_at": "2025-05-01T23:09:54.945Z", "author": 2, "image": "", "slug": "test"}},
+  {"model": "advertisement.post", "pk": 2, "fields": {"title": "advertisement 2", "text": "advertisement 2", "created_at": "2025-05-01T23:10:16.745Z", "author": 2, "image": "", "slug": "test2"}},
+  {"model": "advertisement.post", "pk": 3, "fields": {"title": "advertisement 3", "text": "advertisement 3", "created_at": "2025-05-01T23:10:44.609Z", "author": 2, "image": "", "slug": "test3"}},
+  {"model": "advertisement.post", "pk": 4, "fields": {"title": "advertisement 4", "text": "advertisement 4", "created_at": "2025-05-01T23:10:44.609Z", "author": 2, "image": "", "slug": "test4"}},
+  {"model": "advertisement.post", "pk": 5, "fields": {"title": "advertisement 5", "text": "advertisement 5", "created_at": "2025-05-01T23:10:16.745Z", "author": 2, "image": "", "slug": "test5"}},
+  {"model": "advertisement.post", "pk": 6, "fields": {"title": "advertisement 6", "text": "advertisement 6", "created_at": "2025-05-01T23:10:44.609Z", "author": 2, "image": "", "slug": "test6"}},
+  {"model": "advertisement.post", "pk": 7, "fields": {"title": "advertisement 7", "text": "advertisement 7", "created_at": "2025-05-01T23:10:44.609Z", "author": 2, "image": "", "slug": "test7"}},
+  {"model": "advertisement.post", "pk": 8, "fields": {"title": "advertisement 8", "text": "advertisement 8", "created_at": "2025-05-01T23:10:44.609Z", "author": 2, "image": "", "slug": "test8"}},
+  {"model": "advertisement.post", "pk": 9, "fields": {"title": "advertisement 9", "text": "advertisement 9", "created_at": "2025-05-01T23:10:16.745Z", "author": 2, "image": "", "slug": "test9"}},
+  {"model": "advertisement.post", "pk": 10, "fields": {"title": "advertisement 10", "text": "advertisement 10", "created_at": "2025-05-01T23:10:44.609Z", "author": 2, "image": "", "slug": "test10"}},
+  {"model": "advertisement.post", "pk": 11, "fields": {"title": "advertisement 11", "text": "advertisement 11", "created_at": "2025-05-01T23:10:44.609Z", "author": 2, "image": "", "slug": "test11"}},
+  {"model": "advertisement.post", "pk": 12, "fields": {"title": "advertisement 12", "text": "advertisement 12", "created_at": "2025-05-01T23:10:16.745Z", "author": 2, "image": "", "slug": "test12"}}
+]

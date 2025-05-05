@@ -1,7 +1,7 @@
 from django.urls import path
 from advertisement.views import (main_page, about,
                                  settings,support,
-                                 notification,add_post,
+                                 about_a_site,add_post,
                                  read_post, update_post,
                                  delete_post)
 
@@ -14,6 +14,6 @@ urlpatterns = [
     path('about/', about, name='about'),
     path('settings/', settings, name='settings'),
     path('support/', support, name='support'),
-    path('notification/', notification, name='notification'),
+    path('about_a_site/', about_a_site, name='about_a_site'),
     path('', main_page, name='main_page')
 ]

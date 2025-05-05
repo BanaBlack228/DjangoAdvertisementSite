@@ -10,25 +10,45 @@
   <link href="https://fonts.googleapis.com/css2?family=Mulish:wght@400;500;600&family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="{% static 'CSS/css.css' %}">
   <body>
-    <section>
-        <div class="post-list">
-            {% for post in posts %}
+    <div class="container">
+        <section class="section">
+            {% for post in page_obj %}
                 <div class="card">
                     {% if post.image %}
-                        <img src="{{ post.image.url }}" alt="{{ post.title }}">
+                        <a href="{{ post.get_absolute_url }}">
+                            <img class="small-image" src="{{ post.image.url }}" alt="{{ post.title }}" width="300" height="200">
+                        </a>
                     {% else %}
-                        <img src="{% static 'IMG/No_image_available.png' %}" alt="No image available">
+                        <a href="{{ post.get_absolute_url }}">
+                            <img class="small-image" src="{% static 'IMG/No_image_available.png' %}" alt="No image available" width="400" height="auto">
+                        </a>
                     {% endif %}
                     <div class="card-content">
                         <p>{{ post.author }}</p>
-                        <p><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></p>
+                        <p>{{ post.title }}</p>
                         <p>{{ post.text }}</p>
                         <p><i>{{ post.created_at }}</i></p>
                     </div>
                 </div>
             {% endfor %}
-        </div>
-    </section>
+
+            <div class="pagination">
+                 <span class="step-links">
+                     {% if page_obj.has_previous %}
+                         <a href="?page=1">&laquo;Первая</a>
+                         <a href="?page={{ page_odj.previous_page_number }}">Предыдущая</a>
+                     {% endif %}
+                         <span class="current">
+                         Страница {{ page_obj.number }} из {{ page_obj.paginator.num_pages }}
+                         </span>
+                     {% if page_obj.has_next %}
+                         <a href="?page={{ page_obj.next_page_number }}">Cледующая</a>
+                         <a href="?page={{ page_obj.paginator.num_pages }}">&laquo;Последняя&raquo;</a>
+                     {% endif %}
+                 </span>
+            </div>
+        </section>
+    </div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 {% endblock content %}
 </body>
