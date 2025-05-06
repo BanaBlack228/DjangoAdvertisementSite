@@ -11,16 +11,11 @@ def main_page(request):
 
 def about(request):
     posts = Post.objects.all().order_by('-created_at')
-    count_posts = Post.objects.count()
     per_page = 3
     paginator = Paginator(posts,per_page)
     page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)
-    context = {
-        "title": "Объявления",
-        "page_obj": page_obj,
-        "count_posts": count_posts
-    }
+    context = {"title": "Объявления","page_obj": page_obj}
     return   render(request, template_name='advertisement/about.html', context=context)
 
 def settings(request):
@@ -32,25 +27,21 @@ def support(request):
     return   render(request, template_name='advertisement/support.html', context=context)
 
 def about_a_site(request):
-    context = {"title": "О Сайте"}
+    count_posts = Post.objects.count()
+    context = {"title": "О Сайте","count_posts": count_posts}
     return   render(request, template_name='advertisement/about_a_site.html', context=context)
 
 @login_required
 def add_post(request):
     if request.method == "GET":
-        post_form = PostForm()
+        post_form = PostForm(author=request.user)
         context = {"title": "Добавить пост",'form':post_form}
         return render(request,template_name='advertisement/add_post.html', context=context)
 
     if request.method == "POST":
-        post_form = PostForm(data=request.POST, files=request.FILES)
+        post_form = PostForm(data=request.POST, files=request.FILES, author=request.user)
         if post_form.is_valid():
-            post = Post()
-            post.title = post_form.cleaned_data['title']
-            post.text = post_form.cleaned_data['text']
-            post.author = post_form.cleaned_data['author']
-            post.image = post_form.cleaned_data['image']
-            post.save()
+            post_form.save()
     return about(request)
 
 def read_post(request, slug):
@@ -77,7 +68,7 @@ def update_post(request, pk):
             "text": post.text,
             "image": post.image,
         })
-        return render(request, template_name="from/edit_post.html", context={"form":post_form})
+        return render(request, template_name="advertisement/edit_post.html", context={"form":post_form})
 
 @login_required
 def delete_post(request, pk):

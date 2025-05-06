@@ -4,7 +4,10 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
-from .forms import RegistrationForm, NewRegistrationForm
+from django.contrib.auth import update_session_auth_hash
+from django.contrib import messages
+
+from .forms import RegistrationForm, NewRegistrationForm, CustomPasswordChangeForm
 from AdvertisementSite.settings import LOGIN_REDIRECT_URL
 
 def register(request):
@@ -15,7 +18,7 @@ def register(request):
             new_user.set_password(form.cleaned_data['password'])
             new_user.save()
             context= {"title":"Регистрация завершена", "new_user": new_user}
-            return render(request, template_name="users/registration_done.html", context=context)
+            return render(request, template_name="advertisement/main_page.html", context=context)
 
     form = NewRegistrationForm()
     context= {"title":"Регистрация пользователя","register_form":form}
@@ -49,5 +52,21 @@ def user_profile(request, pk):
     context = {"user":user, "title": "Информация о пользователе"}
     return render(request, template_name="users/profile.html", context=context)
 
-
+@login_required
+def change_password(request):
+    if request.method == "POST":
+        form = CustomPasswordChangeForm(request.user, request.POST)
+        if form.is_valid():
+            old_password = form.cleaned_data["old_password"]
+            if not request.user.check_password(old_password):
+                messages.error(request, "Старый пароль не верный")
+            else:
+                user = form.save()
+                update_session_auth_hash(request, user)
+                messages.success(request, "Ваш пароль успешно изменен")
+        else:
+            messages.error(request,"Пожалуйста исправьте ошибки")
+    else:
+        form = CustomPasswordChangeForm(request.user)
+    return render(request, template_name="users/change_password.html", context={"form": form})
 

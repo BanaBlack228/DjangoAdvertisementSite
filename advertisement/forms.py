@@ -2,22 +2,18 @@ from django import forms
 from django.contrib.auth.models import User
 from .models import Post
 
-
-class PostForm(forms.Form):
-    title = forms.CharField(max_length=200, label="Загаловок")
-    text = forms.CharField(widget=forms.Textarea, label="Текст объявления")
-    author = forms.ModelChoiceField(queryset=User.objects.all(), label="Автор")
-    image = forms.ImageField(required=False, label="Изображение")
-
-class NewPostForm(forms.ModelForm):
+class PostForm(forms.ModelForm):
+    def __init__(self, *args, **kwargs):
+        author = kwargs.pop('author')
+        super().__init__(*args, **kwargs)
+        self.fields['author'].initial = author
+        self.fields['author'].disabled = True
+        self.fields['author'].widget = forms.HiddenInput()
     class Meta:
         model = Post
-        fields = ('title', 'text')
-
-        # fields = '__all__'
-        #exclude = ('author','created_at')
-
+        fields = ('title', 'text','image', 'author')
         labels = {
-            'title':'Загаловок',
-            'text': 'Текст поста'
+            'title': 'Загаловок',
+            'text': 'Текст поста',
+            'image': 'Изображение'
         }

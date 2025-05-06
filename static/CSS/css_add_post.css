@@ -5,7 +5,7 @@ body {
 
 .post-form {
     background: rgba(72,72,72,0.4); /* Полупрозрачный фон */
-    border: 2px solid transparent; /* Начальный цвет рамки */
+    border: 5px solid transparent; /* Начальный цвет рамки */
     border-radius: 15px; /* Скругление углов */
     padding: 20px; /* Внутренние отступы */
     width: 400px; /* Ширина формы */
@@ -16,7 +16,7 @@ body {
 .post-form::before {
     content: '';
     position: absolute;
-    top: -5px;
+    top: -7px;
     left: -5px;
     right: -5px;
     bottom: -5px;
@@ -24,6 +24,15 @@ body {
     border-radius: 15px; /* Скругление углов */
     z-index: -1; /* Псевдоэлемент под формой */
     animation: pulse 2s infinite; /* Анимация пульсации */
+}
+
+.message {
+    color: #008c8c; /* Скрываем текст */
+}
+
+.message a {
+    text-decoration: none; /* Убираем подчеркивание */
+    color:white;
 }
 
 @keyframes pulse {

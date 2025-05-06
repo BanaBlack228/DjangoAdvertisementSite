@@ -38,9 +38,19 @@
             </a>
         </div>
 {% endif %}
-</div>
+{% if user.is_superuser %}
+         <div class="btn-action">
+             <div class="btn-del-post">
+                <a href="{% url 'advertisement:delete_post' pk=post.id %}">
+                    <button class="button">Удалить</button>
+                </a>
+            </div>
+        </div>
+{% endif %}
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="{% static 'JS/#.js' %}"></script>
+
 {% endblock content %}
 </body>
 </html>
