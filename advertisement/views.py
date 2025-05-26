@@ -60,7 +60,7 @@ def update_post(request, pk):
             post.author = post_form.cleaned_data['author']
             post.image = post_form.cleaned_data['image']
             post.save()
-        return redirect('advertisement:read_post', pk=post.id)
+        return redirect('advertisement:read_post', slug=post.slug)
     else:
         post_form = PostForm(initial={
             "title": post.title,
@@ -76,7 +76,7 @@ def delete_post(request, pk):
     contex = {"post": post}
     if request.method == "POST":
         post.delete()
-        return about('advertisement:about')
+        return redirect('advertisement:about')
     return render(request, template_name="advertisement/delete_post.html", context=contex)
 
 def page_not_found(request, exception):

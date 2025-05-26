@@ -1,0 +1,68 @@
+/* Стили для блока с информацией о посте */
+.post-info {
+    padding: 20px; /* Внутренние отступы */
+    border-bottom: 1px solid #ddd; /* Разделитель */
+}
+
+/* Стили для параграфов */
+.post-info p {
+    margin: 10px 0; /* Отступы между параграфами */
+    font-size: 18px; /* Размер шрифта */
+    color: #333; /* Цвет текста */
+}
+
+/* Стили для заголовка */
+.post-info p.title {
+    font-weight: bold; /* Жирный шрифт для заголовка */
+    font-size: 22px; /* Увеличенный размер шрифта для заголовка */
+    color: #2c3e50; /* Темно-синий цвет для заголовка */
+}
+/* Стили для формы */
+form {
+    padding: 20px; /* Внутренние отступы */
+    display: flex; /* Используем flexbox для выравнивания кнопок */
+    justify-content: space-between; /* Распределяем кнопки по краям */
+}
+
+/* Стили для кнопок */
+form button {
+    padding: 10px 15px; /* Внутренние отступы */
+    border: none; /* Без рамки */
+    border-radius: 5px; /* Закругленные углы */
+    font-size: 16px; /* Размер шрифта */
+    cursor: pointer; /* Курсор в виде руки */
+    transition: background-color 0.3s ease; /* Эффект наведения */
+    width: 48%; /* Задаем ширину кнопок */
+}
+
+/* Стили для кнопки Удалить */
+form button.submit {
+    background-color: #e74c3c; /* Красный цвет */
+    color: white; /* Белый текст */
+}
+
+form button.submit:hover {
+    background-color: #c0392b; /* Темно-красный цвет при наведении */
+}
+
+/* Стили для кнопки Отменить */
+form button.button {
+    background-color: #3498db; /* Синий цвет */
+    color: white; /* Белый текст */
+}
+
+form button.button:hover {
+    background-color: #2980b9; /* Темно-синий цвет при наведении */
+}
+
+/* Стили для ссылки внутри кнопки Отменить */
+form button.button a {
+    color: white; /* Белый текст */
+    text-decoration: none; /* Без подчеркивания */
+    display: block; /* Занимает всю кнопку */
+}
+
+/* Стили для ссылки при наведении */
+form button.button a:hover {
+    text-decoration: underline; /* Подчеркивание при наведении */
+}

@@ -1,0 +1,120 @@
+body {
+    font-family: 'Arial', sans-serif; /* Выберите шрифт */
+    line-height: 1.6; /* Интервал между строками */
+    color: #333; /* Цвет текста */
+}
+
+.sketch-text {
+  font-size: 55px;
+  font-weight: bold;
+  color: #008c8c;
+  text-shadow: 1px 1px 0 rgba(255, 255, 255, 0.8),
+               2px 2px 0 rgba(0, 0, 0, 0.2);
+  filter: blur(0.5px); /* Эффект размытия */
+  animation: pulse 1.5s infinite;
+}
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+}
+
+.fixed-header {
+  position: fixed; /* Фиксированное позиционирование */
+  top: 13mm; /* От верхней границы страницы, опущено на 13 мм */
+  left: 50%; /* Центрирование по горизонтали */
+  transform: translateX(-50%); /* Сдвиг на половину ширины элемента для центрирования */
+  font-size: 60px; /* Размер шрифта */
+  font-weight: bold; /* Жирный шрифт */
+  z-index: 5; /* Убедитесь, что текст выше других элементов */
+}
+
+.img {
+  z-index:5;
+  position: fixed;
+  top: 65mm;
+  left: 50%;
+  transform: translateX(-50%);
+  max-width: 100%; /* Максимальная ширина 100% от родителя */
+  max-height: 100%; /* Максимальная высота 100% от родителя */
+}
+
+
+.btn-action {
+    z-index: 5;
+    display: flex;
+    gap: 121px;
+    margin-bottom: 191px;
+    flex-wrap: wrap;
+    transform: translateX(0mm);
+}
+
+.btn-action .button {
+  background-color: #007BFF;
+  border: none;
+  color: white;
+  padding: 12px 25px;
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  text-decoration: none;
+  display: inline-block;
+  user-select: none;
+}
+
+.btn-action .button:hover {
+  background-color: #0056b3;
+}
+
+/* Отдельный стиль для кнопки удаления */
+.btn-del-post .button {
+  background-color: #dc3545;
+}
+
+.btn-del-post .button:hover {
+  background-color: #a71d2a;
+}
+
+/* Дата создания */
+.container i {
+    display: block;
+    font-size: 21px;
+    color: white;
+    margin-bottom: -1199px;
+    transform: translateX(-50%);
+    position: fixed;
+    left: 50%;
+}
+
+.blockquote {
+    transform: translateX(-137mm);
+    position: fixed;
+    left: 50%;
+    top: 451px;
+    font-style: italic;
+    border-left: 4px solid #3498db;
+    padding-left: 20px;
+    margin: 0;
+    font-size: 50px;
+    font-weight: bold;
+    color: white;
+}
+
+.blockquote_1 {
+    transform: translateX(-135mm);
+    position: fixed;
+    left: 50%;
+    top: 561px;
+    font-style: italic;
+    padding-left: 20px;
+    margin: 0;
+    font-size: 30px;
+    font-weight: bold;
+    color: white;
+}
+}

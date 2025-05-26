@@ -1,4 +1,4 @@
-
+{% extends 'advertisement/base.html' %}
 {% load static %}
 {% block content %}
 <!DOCTYPE html>
@@ -9,20 +9,27 @@
     <title>{{title}}</title>
     <link href="https://fonts.googleapis.com/css2?family=Mulish:wght@400;500;600&family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Roboto+Mono:100" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="{% static 'CSS/#.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'CSS/detail.css' %}">
     <body>
 <div class="container">
-  {{ post.author }}
-  <hr>
-  {{ post.title }}
+    <div class="fixed-header">
+        <div class="sketch-text">
+            {{ post.author }}
+        </div>
+    </div>
 
-{% if post.image %}
-    <img src="{{ post.image.url }}" width="200px" height="auto">
-{% else %}
-    <img src="{% static 'IMG/No_image_available.png' %}" width="200px" height="auto">
-{% endif %}
+    <div class="img">
+        {% if post.image %}
+            <img src="{{ post.image.url }}" width="200px" height="auto">
+        {% else %}
+            <img src="{% static 'IMG/No_image_available.png' %}" width="200px" height="auto">
+        {% endif %}
+    </div>
 
-  {{ post.text }}
+
+<h1 class="blockquote">{{ post.title }}</h1>
+
+<p class="blockquote_1">{{ post.text }}</p>
     <i>{{ post.created_at }}</i>
 
 {% if user == post.author %}

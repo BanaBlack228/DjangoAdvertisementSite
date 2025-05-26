@@ -16,7 +16,7 @@
                 <div class="card">
                     {% if post.image %}
                         <a href="{{ post.get_absolute_url }}">
-                            <img class="small-image" src="{{ post.image.url }}" alt="{{ post.title }}" width="300" height="200">
+                            <img class="small-image" src="{{ post.image.url }}" alt="{{ post.title }}">
                         </a>
                     {% else %}
                         <a href="{{ post.get_absolute_url }}">

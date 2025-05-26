@@ -4,14 +4,16 @@ from .models import Post
 
 class PostForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
-        author = kwargs.pop('author')
+        author = kwargs.pop('author', None)
         super().__init__(*args, **kwargs)
         self.fields['author'].initial = author
         self.fields['author'].disabled = True
         self.fields['author'].widget = forms.HiddenInput()
+
     class Meta:
         model = Post
         fields = ('title', 'text','image', 'author')
+
         labels = {
             'title': 'Загаловок',
             'text': 'Текст поста',
