@@ -1,3 +1,12 @@
+.sait-t {
+    display: block;
+    position: fixed;
+    top: 244px;
+    transform: translateX(-866px);
+    color: white;
+}
+
+
 /* CARD */
 
 section {

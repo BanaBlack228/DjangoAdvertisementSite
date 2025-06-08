@@ -52,6 +52,15 @@ body {
     transform: translateX(0mm);
 }
 
+.btn-edit-post{
+    border: groove;
+    border-radius: 8px;
+}
+
+.btn-del-post{
+     border: groove;
+     border-radius: 8px;
+}
 .btn-action .button {
   background-color: #007BFF;
   border: none;
@@ -92,10 +101,10 @@ body {
 }
 
 .blockquote {
-    transform: translateX(-137mm);
+    transform: translateX(-23mm);
     position: fixed;
     left: 50%;
-    top: 451px;
+    top: 628px;
     font-style: italic;
     border-left: 4px solid #3498db;
     padding-left: 20px;
@@ -106,15 +115,14 @@ body {
 }
 
 .blockquote_1 {
-    transform: translateX(-135mm);
+    transform: translateX(-113mm);
     position: fixed;
     left: 50%;
-    top: 561px;
+    top: 798px;
     font-style: italic;
     padding-left: 20px;
     margin: 0;
-    font-size: 30px;
+    font-size: 22px;
     font-weight: bold;
     color: white;
-}
 }

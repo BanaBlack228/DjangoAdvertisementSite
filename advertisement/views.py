@@ -31,6 +31,11 @@ def about_a_site(request):
     context = {"title": "О Сайте","count_posts": count_posts}
     return   render(request, template_name='advertisement/about_a_site.html', context=context)
 
+def about_a_site_about(request):
+    count_posts_t = Post.objects.count()
+    context = {"title": "Кол-во Объявлений","count_posts": count_posts_t}
+    return   render(request, template_name='advertisement/about.html', context=context)
+
 @login_required
 def add_post(request):
     if request.method == "GET":

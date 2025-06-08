@@ -11,17 +11,22 @@
     <link href="https://fonts.googleapis.com/css?family=Roboto+Mono:100" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="{% static 'CSS/delete.css' %}">
     <body>
+    <form method="post">
         <div class="post-info">
-            <p class="author">Автор - {{ post.author }}</p>
-            <p class="title">Заголовок - {{ post.title }}</p>
+            <p class="author">{{ post.author }}</p>
+            <p class="title">{{ post.title }}</p>
         </div>
 
-    <form method="post">
         {% csrf_token %}
-            <button class="submit" type="submit">Удалить</button>
-            <button class="button" type="button">
-                <a href="{% url 'advertisement:read_post' slug=post.slug %}">Отменить</a>
-            </button>
+            <div class="btn-action">
+            <div class="btn-edit-post">
+                <a href="{% url 'advertisement:read_post' slug=post.slug %}">
+                    <button class="button" type="button">Отменить</button>
+                </a>
+            </div>
+            <div class="btn-del-post">
+                <a><button class="submit" type="submit">Удалить</button></a>
+            </div>
     </form>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="{% static 'JS/#.js' %}"></script>

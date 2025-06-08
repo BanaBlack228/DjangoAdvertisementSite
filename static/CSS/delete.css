@@ -1,68 +1,94 @@
 /* Стили для блока с информацией о посте */
 .post-info {
-    padding: 20px; /* Внутренние отступы */
+    padding: 58px;
     border-bottom: 1px solid #ddd; /* Разделитель */
+    position: fixed;
+    top: 313px;
+    transform: translateX(-50%);
+
+
 }
 
 /* Стили для параграфов */
 .post-info p {
-    margin: 10px 0; /* Отступы между параграфами */
-    font-size: 18px; /* Размер шрифта */
-    color: #333; /* Цвет текста */
+    margin: 10px 0;
+    font-size: 143px;
+    color: #008c8c;
 }
 
 /* Стили для заголовка */
 .post-info p.title {
-    font-weight: bold; /* Жирный шрифт для заголовка */
-    font-size: 22px; /* Увеличенный размер шрифта для заголовка */
-    color: #2c3e50; /* Темно-синий цвет для заголовка */
+    font-weight: bold;
+    font-size: 40px;
+    color: white;
+    transform: translateX(33mm);
 }
+
 /* Стили для формы */
 form {
     padding: 20px; /* Внутренние отступы */
     display: flex; /* Используем flexbox для выравнивания кнопок */
     justify-content: space-between; /* Распределяем кнопки по краям */
+    z-index: 5;
 }
 
-/* Стили для кнопок */
-form button {
-    padding: 10px 15px; /* Внутренние отступы */
-    border: none; /* Без рамки */
-    border-radius: 5px; /* Закругленные углы */
-    font-size: 16px; /* Размер шрифта */
-    cursor: pointer; /* Курсор в виде руки */
-    transition: background-color 0.3s ease; /* Эффект наведения */
-    width: 48%; /* Задаем ширину кнопок */
+.btn-action {
+    z-index: 5;
+    display: flex;
+    gap: 121px;
+    margin-bottom: 191px;
+    flex-wrap: wrap;
+    position: fixed;
+    top: 705px;
+    transform: translateX(-50%);
 }
 
-/* Стили для кнопки Удалить */
-form button.submit {
-    background-color: #e74c3c; /* Красный цвет */
-    color: white; /* Белый текст */
+.btn-edit-post{
+    border: groove;
+    border-radius: 8px;
 }
 
-form button.submit:hover {
-    background-color: #c0392b; /* Темно-красный цвет при наведении */
+.btn-del-post{
+     border: groove;
+     border-radius: 8px;
+}
+.btn-action .button {
+  background-color: #007BFF;
+  border: none;
+  color: white;
+  padding: 12px 25px;
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  text-decoration: none;
+  display: inline-block;
+  user-select: none;
+}
+.btn-action .submit {
+  background-color: #007BFF;
+  border: none;
+  color: white;
+  padding: 12px 25px;
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  text-decoration: none;
+  display: inline-block;
+  user-select: none;
+}
+.btn-action .button:hover {
+  background-color: #0056b3;
 }
 
-/* Стили для кнопки Отменить */
-form button.button {
-    background-color: #3498db; /* Синий цвет */
-    color: white; /* Белый текст */
+/* Отдельный стиль для кнопки удаления */
+.btn-del-post .submit {
+  background-color: #dc3545;
 }
 
-form button.button:hover {
-    background-color: #2980b9; /* Темно-синий цвет при наведении */
-}
-
-/* Стили для ссылки внутри кнопки Отменить */
-form button.button a {
-    color: white; /* Белый текст */
-    text-decoration: none; /* Без подчеркивания */
-    display: block; /* Занимает всю кнопку */
-}
-
-/* Стили для ссылки при наведении */
-form button.button a:hover {
-    text-decoration: underline; /* Подчеркивание при наведении */
+.btn-del-post .submit:hover {
+  background-color: #a71d2a;
 }

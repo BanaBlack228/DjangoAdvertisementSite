@@ -49,34 +49,42 @@
 
 {% if not user.is_authenticated %}
             <ul class="logout">
-                <li>
-                  <a href="{% url 'users:login' %}">
-                    <span class="nav-text">Вход</span>
-                  </a>
-                </li>
+                <div class="log">
+                    <li>
+                      <a href="{% url 'users:login' %}">
+                          <span class="nav-text">Вход</span>
+                      </a>
+                    </li>
+                </div>
 
-                <li>
-                  <a href="{% url 'users:register' %}">
-                    <span class="nav-text">Регистрация</span>
-                  </a>
-                </li>
+                <div class="reg">
+                    <li>
+                      <a href="{% url 'users:register' %}">
+                          <span class="nav-text">Регистрация</span>
+                      </a>
+                    </li>
+                </div>
             </ul>
 
 {% else %}
           <ul class="logout">
-            <li>
-              <a href="{% url 'users:user_profile' pk=user.pk %}">
-                <span class="nav-text">{{ user.username }}</span>
-              </a>
-            </li>
+              <div class="log">
+                <li>
+                  <a href="{% url 'users:user_profile' pk=user.pk %}">
+                    <span class="nav-text">{{ user.username }}</span>
+                  </a>
+                </li>
+              </div>
 
-            <li>
-              <a href="{% url 'users:logout' %}">
-                <span class="nav-text">
-                  Выход
-                </span>
-              </a>
-            </li>
+            <div class="reg">
+                <li>
+                  <a href="{% url 'users:logout' %}">
+                    <span class="nav-text">
+                      Выход
+                    </span>
+                  </a>
+                </li>
+            </div>
           </ul>
 {% endif %}
      </nav>
