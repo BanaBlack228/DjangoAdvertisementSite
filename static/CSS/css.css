@@ -6,6 +6,12 @@
     color: white;
 }
 
+.search {
+    display: block;
+    position: fixed;
+    top: 244px;
+    transform: translateX(791px);
+}
 
 /* CARD */
 

@@ -4,7 +4,10 @@ from .models import Post
 
 class PostForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
-        author = kwargs.pop('author', None)
+        if kwargs.get('initial'):
+            author = kwargs['initial'].pop('author')
+        else:
+            author = kwargs.pop('author')
         super().__init__(*args, **kwargs)
         self.fields['author'].initial = author
         self.fields['author'].disabled = True

@@ -9,20 +9,16 @@
     <title>{{title}}</title>
   <link href="https://fonts.googleapis.com/css2?family=Mulish:wght@400;500;600&family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="{% static 'CSS/css.css' %}">
-  <body>
-<div class="search">
-    <form action="" method="get" style="">
-        <input type="search" name="query">
-        <button type="submit">Поиск</button>
-    </form>
-</div>
-
-    <div class="sait-t">
-        <h3>На cайте: {{ count_posts_t }} объявлений</h3>
-    </div>
+<body>
+{% if user == request.user %}
+    <h3>Мои Посты</h3>
+{% else %}
+    <h3>Посты пользователя {{ user.username }}</h3>
+{% endif %}
+<div>
     <div class="container">
         <section class="section">
-            {% for post in page_obj %}
+            {% for post in posts %}
                 <div class="card">
                     {% if post.image %}
                         <a href="{{ post.get_absolute_url }}">
@@ -34,9 +30,7 @@
                         </a>
                     {% endif %}
                     <div class="card-content">
-                        <p><a href="{% url 'advertisement:user_posts' user_id=post.author.pk %}">
-                            {{ post.author }}
-                        </a></p>
+                        <p>{{ post.author }}</p>
                         <p>{{ post.title }}</p>
                         <p>{{ post.text }}</p>
                         <p><i>{{ post.created_at }}</i></p>
@@ -61,9 +55,9 @@
             </div>
         </section>
     </div>
+</div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <script src="{% static 'JS/pagination.js' %}"></script>
 {% endblock content %}
 </body>
 </html>
-

@@ -13,9 +13,13 @@
     <body>
 <div class="container">
     <div class="fixed-header">
+        {% if user.is_authenticated %}
         <div class="sketch-text">
-            {{ post.author }}
+             <!--<a href="{% url 'advertisement:user_info' user_id=post.author.pk %}">-->{{ post.author }}
         </div>
+        {% else %}
+            <b>{{ post.author }}</b>
+        {% endif %}
     </div>
 
     <div class="img">

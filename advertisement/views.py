@@ -1,5 +1,5 @@
-from django.contrib.admin.templatetags.admin_list import pagination
 from django.shortcuts import render,redirect, get_object_or_404
+from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
 from django.core.paginator import Paginator
 from .models import Post
@@ -58,12 +58,11 @@ def read_post(request, slug):
 def update_post(request, pk):
     post = get_object_or_404(Post, pk=pk)
     if request.method == "POST":
-        post_form = PostForm(data=request.POST, files=request.FILES)
+        post_form = PostForm(data=request.POST,
+                             files=request.FILES,
+                             instance=post,
+                             initial={'author': post.author})
         if post_form.is_valid():
-            post.title = post_form.cleaned_data['title']
-            post.text = post_form.cleaned_data['text']
-            post.author = post_form.cleaned_data['author']
-            post.image = post_form.cleaned_data['image']
             post.save()
         return redirect('advertisement:read_post', slug=post.slug)
     else:
@@ -83,6 +82,19 @@ def delete_post(request, pk):
         post.delete()
         return redirect('advertisement:about')
     return render(request, template_name="advertisement/delete_post.html", context=contex)
+
+def user_posts(request, user_id):
+    user = get_object_or_404(User, id=user_id)
+    posts = Post.objects.filter(author=user).select_related('author')
+    context = {"users": user, "posts": posts}
+    return  render(request, template_name='advertisement/user_posts.html', context=context)
+
+
+@login_required
+def user_info(request, user_id):
+    user = get_object_or_404(User, id=user_id)
+    context = {"users": user, "posts": posts}
+    return render(request, template_name='advertisement/user_info.html')
 
 def page_not_found(request, exception):
     return render(request, template_name="advertisement/404.html", context={"title": "404"})

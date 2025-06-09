@@ -14,8 +14,9 @@
         <div class="container">
             <div class="post-form">
                 <form action="" method="post" enctype="multipart/form-data">
+                    <div>Информация о пользователе - {{user.username}}</div>
                     <div>Логин - {{user.username}}</div>
-                    <div>Дата регистрации: {{user.date_joined}}</div>
+                    <div>Дата регистрации: {user.date_joined}}</div>
                     <a href="{% url 'users:change_password' %}">
                        <button type="button">Сменить пароль(добавить, редактирование профиля)</button>
                     </a>
