@@ -10,11 +10,17 @@
   <link rel="stylesheet" type="text/css" href="{% static 'CSS/style.css' %}">
 </head>
   <body>
+      <div class="Logo">
+          <img src="{% static 'IMG/LOGO.jpg' %}" width="100px" height="auto">
+      </div>
       <nav class="main-menu">
           <ul>
             <li>
               <a href="{% url 'advertisement:main_page' %}">
-                <i class="fa fa-home nav-icon"></i>
+                  <i class="fa fy-yyyyy nav-icon"></i>
+                  <div class="img-menu" >
+                      <img src="{% static 'IMG/Home.png' %}" width="70px" height="auto">
+                  </div>
                 <span class="nav-text">Главная</span>
               </a>
             </li>
@@ -22,6 +28,9 @@
             <li>
               <a href="{% url 'advertisement:about' %}">
                 <i class="fa fa-image nav-icon"></i>
+                  <div class="img-menu-1" >
+                      <img src="{% static 'IMG/Advertisement.png' %}" width="70px" height="auto">
+                  </div>
                 <span class="nav-text">Объявления</span>
               </a>
             </li>
@@ -29,6 +38,9 @@
             <li>
               <a href="file:///C:/Users/BanaBlack/OneDrive/Рабочий%20стол/Загатовка%20для%20интернет%20магазина/ADD_internet_blog/Magazin.html">
                 <i class="fa fa-pen nav-icon"></i>
+                 <div class="img-menu-2" >
+                     <img src="{% static 'IMG/Blog.png' %}" width="70px" height="auto">
+                 </div>
                 <span class="nav-text">Блог</span>
               </a>
             </li>
@@ -36,6 +48,9 @@
             <li>
               <a href="{% url 'advertisement:support' %}">
                 <i class="fa fa-envelope nav-icon"></i>
+                  <div class="img-menu-3" >
+                     <img src="{% static 'IMG/Support.png' %}" width="70px" height="auto">
+                  </div>
                 <span class="nav-text">Поддержка</span>
               </a>
             </li>
@@ -43,47 +58,54 @@
             <li>
               <a href="{% url 'advertisement:about_a_site' %}">
                 <i class="fa fa-bell nav-icon"></i>
+                   <div class="img-menu-4" >
+                     <img src="{% static 'IMG/Saite.png' %}" width="90px" height="auto">
+                  </div>
                 <span class="nav-text">О Сайте</span>
               </a>
             </li>
 
 {% if not user.is_authenticated %}
+               <div class="img-menu-5" >
+                  <img src="{% static 'IMG/Exit.png' %}" width="90px" height="auto">
+               </div>
+               <div class="img-menu-6" >
+                  <img src="{% static 'IMG/Registration.png' %}" width="50px" height="auto">
+               </div>
             <ul class="logout">
                 <div class="log">
-                    <li>
                       <a href="{% url 'users:login' %}">
                           <span class="nav-text">Вход</span>
                       </a>
-                    </li>
                 </div>
 
                 <div class="reg">
-                    <li>
                       <a href="{% url 'users:register' %}">
                           <span class="nav-text">Регистрация</span>
                       </a>
-                    </li>
                 </div>
             </ul>
 
 {% else %}
+          <div class="img-menu-7" >
+              <img src="{% static 'IMG/User.png' %}" width="50px" height="auto">
+          </div>
+          <div class="img-menu-8" >
+              <img src="{% static 'IMG/Exit.png' %}" width="90px" height="auto">
+          </div>
           <ul class="logout">
-              <div class="log">
-                <li>
+              <div class="log-1">
                   <a href="{% url 'users:user_profile' pk=user.pk %}">
                     <span class="nav-text">{{ user.username }}</span>
                   </a>
-                </li>
               </div>
 
-            <div class="reg">
-                <li>
+            <div class="reg-1">
                   <a href="{% url 'users:logout' %}">
                     <span class="nav-text">
                       Выход
                     </span>
                   </a>
-                </li>
             </div>
           </ul>
 {% endif %}

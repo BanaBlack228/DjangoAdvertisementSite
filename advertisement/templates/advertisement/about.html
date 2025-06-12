@@ -16,11 +16,10 @@
         <button type="submit">Поиск</button>
     </form>
 </div>
-
-    <div class="sait-t">
-        <h3>На cайте: {{ count_posts_t }} объявлений</h3>
-    </div>
     <div class="container">
+        <div class="sait-t">
+            <h3>На cайте: {{ count_posts_t }} объявлений</h3>
+        </div>
         <section class="section">
             {% for post in page_obj %}
                 <div class="card">

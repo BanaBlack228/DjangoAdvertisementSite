@@ -1,5 +1,25 @@
 {% extends 'advertisement/base.html' %}
 {% load static %}
 {% block content %}
-<h3>На cайте: <span><b>{{ count_posts }}</b></span> объявлений</h3>
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{title}}</title>
+  <link href="https://fonts.googleapis.com/css2?family=Mulish:wght@400;500;600&family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="{% static 'CSS/about_a_site.css' %}">
+  <body>
+<div class="container">
+    <h3>На cайте: <span><b>{{ count_posts }}</b></span> объявлений</h3>
+
+</div>
+
+
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="{% static 'JS/#.js' %}"></script>
 {% endblock content %}
+</body>
+</html>

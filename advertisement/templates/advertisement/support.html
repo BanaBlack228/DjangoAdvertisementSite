@@ -1,5 +1,47 @@
 {% extends 'advertisement/base.html' %}
 {% load static %}
 {% block content %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{title}}</title>
+  <link href="https://fonts.googleapis.com/css2?family=Mulish:wght@400;500;600&family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="{% static 'CSS/support.css' %}">
+  <body>
+    <div class="container-1">
+    <!-- Header -->
+    <header class="header">
+      <h1>Поддержка</h1>
+    </header>
 
+    <!-- Support Options -->
+    <main class="support-section">
+      <!-- Telegram Operator -->
+      <a href="#" target="_blank" class="support-button">
+        Написать оператору в Telegram
+      </a>
+
+      <!-- Telegram Channel -->
+      <a href="#" target="_blank" class="support-button">
+        Наш Telegram-канал
+      </a>
+
+      <!-- Contact Information -->
+      <div class="contact-info">
+        <h2>Контакты</h2>
+        <p>Email: <a href="mailto:rino4171@gmail.com">rino4171@gmail.com</a></p>
+        <p>Телефон: <a href="tel:+79816890334">+7 (981) 689-03-34</a></p>
+      </div>
+    </main>
+  </div>
+
+
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="{% static 'JS/#.js' %}"></script>
 {% endblock content %}
+</body>
+</html>

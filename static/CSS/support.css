@@ -1,0 +1,81 @@
+/* Общий стиль */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Inter', sans-serif;
+  z-index: 5;
+}
+
+body {
+  color: #fff;
+}
+
+
+.container-1 {
+    width: 100%;
+    max-width: 469px;
+    background: rgba(72, 72, 72, 0.4);
+    border-radius: 20px;
+    padding: 23px;
+}
+
+/* Заголовок */
+.header h1 {
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 37px;
+}
+
+/* Кнопки поддержки */
+.support-section {
+    display: flex;
+    flex-direction: column;
+    gap: 17px;
+
+}
+
+.support-button {
+    text-align: center;
+    padding: 15px;
+    background: #008c8c;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 10px;
+}
+
+.support-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.5);
+}
+
+/* Контактная информация */
+.contact-info {
+    margin-top: 25px;
+    padding: 45px;
+    background: rgba(72, 72, 72, 0.4);
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+    font-size: 24px;
+}
+
+.contact-info h2 {
+  font-size: 2.2rem;
+  color: #00d1ff;
+  margin-bottom: 10px;
+}
+
+.contact-info p {
+  font-size: 0.9rem;
+  margin: 5px 0;
+}
+
+.contact-info a {
+  color: #00d1ff;
+  text-decoration: none;
+}
+
+.contact-info a:hover {
+  text-decoration: underline;
+}
